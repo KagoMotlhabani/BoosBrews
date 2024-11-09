@@ -9,7 +9,7 @@ public class CameraFollows : MonoBehaviour
     public Vector3 offset = new Vector3(0, 2.5f, -10);
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
         Vector3 targetPos = target.position + offset;
         transform.position = Vector3.Slerp(transform.position, targetPos, camDelay*Time.deltaTime);
