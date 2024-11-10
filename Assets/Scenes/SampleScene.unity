@@ -263,6 +263,7 @@ GameObject:
   - component: {fileID: 372584448}
   - component: {fileID: 372584447}
   - component: {fileID: 372584446}
+  - component: {fileID: 372584449}
   m_Layer: 0
   m_Name: CoffeeMachine
   m_TagString: Untagged
@@ -382,6 +383,20 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &372584449
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 372584445}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 089e7f986a39f564aa41fc26ab2cce9f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  coffeeReady: 0
+  prepareTime: 5
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -770,6 +785,8 @@ MonoBehaviour:
   walkTime: 4
   prepareTime: 5
   readyToGo: 0
+  busy: 0
+  moveCounter: 0
 --- !u!61 &1107757314
 BoxCollider2D:
   m_ObjectHideFlags: 0
