@@ -5,29 +5,32 @@ using UnityEngine;
 public class CoffeeMachine : MonoBehaviour
 {
     public bool coffeeReady = false;
+    public bool brewing = false;
     public float prepareTime = 5;
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 
     void OnMouseDown(){
-        StartCoroutine(MakeCoffee());
+        if(coffeeReady == false){
+            if(brewing == false && coffeeReady == false){
+            StartCoroutine(MakeCoffee());
+            }else{
+                Debug.Log("Already brewing coffee");
+            }
+        }else{
+            Debug.Log("Coffee collected");
+            coffeeReady = false;
+        }
+        
 
     }//end OnMouseDown
 
     IEnumerator MakeCoffee(){
 
         Debug.Log($"Brewing...");
+        brewing = true;
         yield return new WaitForSeconds (prepareTime);
         Debug.Log("Brewed");
         coffeeReady = true;
+        brewing = false;
     }//end MakeCoffee
 }//end class

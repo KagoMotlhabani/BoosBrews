@@ -23,18 +23,6 @@ public class Boo : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //Boo must prepare the Order
-        if(readyToGo == true && customer.inCafe == true && busy == false){
-            //StartCoroutine(PrepareOrder());
-
-            //StartCoroutine(WalkToKitchen());
-            //StartCoroutine(PrepareOrder());
-            //StartCoroutine(WalkFromKitchen());
-            
-            //readyToGo = false;
-
-
-        }
 
 
     }
@@ -48,37 +36,12 @@ public class Boo : MonoBehaviour
         if(customer.inCafe == true && busy == false){
         
             readyToGo = true;
+            busy = true;
             StartCoroutine(Walk(walkTime) );
-           /*  
-           switch(moveCounter){
-                case 0:
-                Debug.Log($"Walking to kitchen...");
-                StartCoroutine(Walk(walkTime));
-                break;
-
-                case 1:
-                //Debug.Log($"In kitchen... PREP");
-                StartCoroutine(PrepareOrder());
-                break;
-
-                case 2:
-                Debug.Log($"Walking back...");
-                StartCoroutine(Walk(walkTime));
-                break;
-
-                case 3:
-                Debug.Log($"RESET");
-                break;
-
-            }
-
-*/
-
-
 
 
         } else{
-            Debug.Log($"No customers to service");
+            Debug.Log($"Can't do anything right now");
         }
         
 
@@ -119,6 +82,7 @@ public class Boo : MonoBehaviour
             yield return null;
         }//end while 
         Debug.Log($"Done walking");
+        busy = false;
 
     }//end wwalk
 
