@@ -48,29 +48,6 @@ public class Boo : MonoBehaviour
   
     }//end OnMouseDown
 
-    //This is a the cycle Boo will follow when preparing the customers order
-    IEnumerator PrepareOrder(){
-        //busy = true;
-
-        //Debug.Log($"Walking to the Kitchen...");
-        //moveCounter++;
-        //yield return new WaitForSeconds(walkTime);
-        
-        Debug.Log($"In the Kitchen...Preparing Order");
-        //moveCounter++;
-        yield return new WaitForSeconds (prepareTime);
-        Debug.Log($"Done preparing");
-
-        //Debug.Log($"Walking back to customer");
-        //moveCounter++;
-        //yield return new WaitForSeconds(walkTime);
-        //moveCounter++;
-
-        //Debug.Log($"Ready for the next one");
-        //busy = false;
-        //moveCounter = 0;
-        //yield return null;
-    }
 
     IEnumerator Walk(float walking){
         //moveCounter++;

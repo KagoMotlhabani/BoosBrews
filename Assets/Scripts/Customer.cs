@@ -9,7 +9,7 @@ public class Customer : MonoBehaviour
     public bool inCafe = false; //to determine whether customer is in t
     public bool orderGiven = false;
     public bool happy = true; //customer eneters the cafe happy, if they have to wait too long, they will become angry
-   // public bool once = false;
+
     // Start is called before the first frame update
     void Start()
     {   
