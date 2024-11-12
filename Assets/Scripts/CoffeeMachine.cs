@@ -1,5 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Threading.Tasks;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class CoffeeMachine : MonoBehaviour
@@ -7,6 +9,8 @@ public class CoffeeMachine : MonoBehaviour
     public bool coffeeReady = false;
     public bool brewing = false;
     public float prepareTime = 5;
+    public GameObject coffee;
+    public GameObject copyCoffee;
 
 
     void OnMouseDown(){
@@ -19,6 +23,7 @@ public class CoffeeMachine : MonoBehaviour
         }else{
             Debug.Log("Coffee collected");
             coffeeReady = false;
+            Destroy(copyCoffee);
         }
         
 
@@ -31,6 +36,9 @@ public class CoffeeMachine : MonoBehaviour
         yield return new WaitForSeconds (prepareTime);
         Debug.Log("Brewed");
         coffeeReady = true;
+        copyCoffee = Instantiate(coffee);
         brewing = false;
     }//end MakeCoffee
+
+    
 }//end class
