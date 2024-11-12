@@ -9,8 +9,7 @@ public class CoffeeMachine : MonoBehaviour
     public bool coffeeReady = false;
     public bool brewing = false;
     public float prepareTime = 5;
-    public GameObject coffee;
-    public GameObject copyCoffee;
+    public GameObject coffee, copyCoffee;
 
 
     void OnMouseDown(){

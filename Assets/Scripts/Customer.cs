@@ -10,6 +10,9 @@ public class Customer : MonoBehaviour
     public bool orderGiven = false;
     public bool happy = true; //customer eneters the cafe happy, if they have to wait too long, they will become angry
 
+    public MoneyManager money;
+    public int coffeePrice = 10;
+
     // Start is called before the first frame update
     void Start()
     {   
@@ -44,6 +47,8 @@ public class Customer : MonoBehaviour
         if(inCafe == true){
             Debug.Log("Order given");
             orderGiven = true;
+            //money.AddMoney(coffeePrice);
+            MoneyManager.instance.AddMoney(coffeePrice);
         }
         
         

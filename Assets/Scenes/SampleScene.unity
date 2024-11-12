@@ -398,6 +398,8 @@ MonoBehaviour:
   coffeeReady: 0
   brewing: 0
   prepareTime: 5
+  coffee: {fileID: 5476726678875892159, guid: d3bb571cb60329745be19aeb53518c9f, type: 3}
+  copyCoffee: {fileID: 0}
 --- !u!1 &433719468
 GameObject:
   m_ObjectHideFlags: 0
@@ -478,6 +480,7 @@ GameObject:
   - component: {fileID: 461107976}
   - component: {fileID: 461107975}
   - component: {fileID: 461107974}
+  - component: {fileID: 461107978}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -568,6 +571,20 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!114 &461107978
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 461107973}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 75fcbe436ae1f1345a460544c474231b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moneyText: {fileID: 1860881492}
+  money: 0
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -1056,7 +1073,7 @@ GameObject:
   - component: {fileID: 1860881493}
   - component: {fileID: 1860881492}
   m_Layer: 5
-  m_Name: Text (TMP)
+  m_Name: Money Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1078,8 +1095,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: 0, y: -25}
-  m_SizeDelta: {x: 200, y: 50}
+  m_AnchoredPosition: {x: 0, y: -46.813965}
+  m_SizeDelta: {x: 295.6102, y: 93.628}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1860881492
 MonoBehaviour:
@@ -1103,8 +1120,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: 'Money: $0'
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 5302535af1044152a457ed104f1f4b91, type: 2}
-  m_sharedMaterial: {fileID: 2164040, guid: 5302535af1044152a457ed104f1f4b91, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: b84681c5137bc0a4c97ed6abc3f34c46, type: 2}
+  m_sharedMaterial: {fileID: -2909562657863158147, guid: b84681c5137bc0a4c97ed6abc3f34c46, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -1128,14 +1145,14 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 36
-  m_fontSizeBase: 36
+  m_fontSize: 60
+  m_fontSizeBase: 60
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 0
-  m_HorizontalAlignment: 1
+  m_HorizontalAlignment: 2
   m_VerticalAlignment: 256
   m_textAlignment: 65535
   m_characterSpacing: 0
