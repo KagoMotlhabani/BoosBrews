@@ -10,6 +10,7 @@ public class CoffeeMachine : MonoBehaviour
     public bool brewing = false;
     public float prepareTime = 5;
     public GameObject coffee, copyCoffee;
+    public Boo boo;
 
 
     void OnMouseDown(){
@@ -22,6 +23,7 @@ public class CoffeeMachine : MonoBehaviour
         }else{
             Debug.Log("Coffee collected");
             coffeeReady = false;
+            boo.holdingCoffee = true;
             Destroy(copyCoffee);
         }
         

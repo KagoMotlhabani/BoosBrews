@@ -70,6 +70,10 @@ Method that allows Boo to walk to the Kitchen in the designated time
         busy = false;
         inKitchen = !inKitchen; //flip the value of inKitchen
 
+        if(holdingCoffee == true){
+            Debug.Log($"Boo is holding the coffee");
+        }
+
     }//end walk
 
 

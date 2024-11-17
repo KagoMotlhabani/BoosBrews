@@ -9,14 +9,17 @@ public class Customer : MonoBehaviour
     public bool inCafe = false; //to determine whether customer is in the cafe
     public bool orderGiven = false;
     public bool happy = true; //customer eneters the cafe happy, if they have to wait too long, they will become angry
-    public GameObject customer, customerCopy; //basically do the same as with the coffemachine scipt
+    public Vector2 startPosition;
+    public Vector2 endPosition = new Vector2( (float)-4.07, (float)-0.98);
     public MoneyManager money;
     public int coffeePrice = 10;
+    public Boo boo;
 
     // Start is called before the first frame update
     void Start()
     {   
-        //gameObject.SetActive(false);
+        startPosition = transform.position;
+        Debug.Log(startPosition);
         
     }//end start
 
@@ -30,22 +33,22 @@ public class Customer : MonoBehaviour
         timeDelay += Time.deltaTime;
 
         if (timeDelay > 5 && inCafe == false){
-            Debug.Log("A customer has entered the cafe");
+            //StartCoroutine(CustoWalk() );
+            StartCoroutine(CustomerWalkIn(3f) );
+            //transform.Translate(Vector2.right * Time.deltaTime *3);
             timeDelay = 0;
-            inCafe = true;
             //once = true;
-            //gameObject.SetActive(true);
+    
         }
     }//end enterCafe  
 
-
     private void OnMouseDown()
     {
-        if(inCafe == true){
-            Debug.Log("Order given");
+        if(inCafe == true && boo.holdingCoffee == true){
+            Debug.Log("Customer has received the coffee");
             orderGiven = true;
-            //money.AddMoney(coffeePrice);
             MoneyManager.instance.AddMoney(coffeePrice);
+            StartCoroutine(CustomerWalkOut(3f));
         } else{
             Debug.Log("You don't have anything to give the customer");
         }
@@ -53,10 +56,38 @@ public class Customer : MonoBehaviour
         
     }//ebd object is clicked
 
-    IEnumerator LeaveCafe(){
-        yield return new WaitForSeconds(5);
-        Debug.Log("Customer has left");
-    }
+//here time is how long the customer takes to enter
+    IEnumerator CustomerWalkIn(float time){
+        Debug.Log($"In coroutine");
+        float timePassed = 0;
+        while(timePassed < time){
+            if(inCafe == false){
+                transform.Translate(Vector2.right * Time.deltaTime *4);
+            }
+            
+            timePassed += Time.deltaTime;
+            yield return null;
+        }
+        Debug.Log($"A customer has entered the cafe");
+        inCafe = true;
+        
+    }//end CustomerWalk
+
+        IEnumerator CustomerWalkOut(float time){
+        Debug.Log($"In coroutine"); 
+        float timePassed = 0;
+        while(timePassed < time){
+            if(inCafe == true){
+                transform.Translate(Vector2.left * Time.deltaTime *4);
+            }
+            
+            timePassed += Time.deltaTime;
+            yield return null;
+        }
+        Debug.Log($"A customer has left the cafe");
+        inCafe = false;
+        timeDelay = 0;
+    }//end CustomerWalk
 
     IEnumerator WaitForOrder(int x){
         if(orderGiven == true){
@@ -66,6 +97,7 @@ public class Customer : MonoBehaviour
 
 
     }//end WaitForOrder
+
 
 
 }//end Customer
