@@ -5,7 +5,7 @@ using UnityEngine;
 public class Boo : MonoBehaviour
 {
     public Customer customer;
-    public Vector2 kitchenPosition = new Vector2((float)13.2413883,(float)-0.985000372);
+    public Vector2 kitchenPosition = new Vector2((float)12.43,(float)-0.54);
     public Vector2 startPosition;
     public float walkTime = 2;
     public bool busy = false;
