@@ -92,12 +92,9 @@ public class Customer : MonoBehaviour
     IEnumerator WaitForOrder(int x){
         if(orderGiven == true){
             yield return new WaitForSeconds(10);
-
         }
-
-
     }//end WaitForOrder
 
-
+//testing
 
 }//end Customer
