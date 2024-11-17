@@ -41,5 +41,11 @@ public class CoffeeMachine : MonoBehaviour
         brewing = false;
     }//end MakeCoffee
 
-    
+    public float GetPrepTime(){
+        return prepareTime;
+    }
+
+    public void SetPrepTime(int newPrepTime){
+        prepareTime = newPrepTime;
+    }
 }//end class

@@ -19,13 +19,6 @@ public class Boo : MonoBehaviour
         
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-
-
-    }
-
 
     //Player Clicks on Boo
     void OnMouseDown(){ 
@@ -39,8 +32,6 @@ public class Boo : MonoBehaviour
         } else{
             Debug.Log($"Can't do anything right now");
         }
-        
-
   
     }//end OnMouseDown
 
@@ -75,6 +66,14 @@ Method that allows Boo to walk to the Kitchen in the designated time
         }
 
     }//end walk
+
+    public float GetWalkTime(){
+        return walkTime;
+    }
+
+    public void SetWalkTime(float newTime){
+        walkTime = newTime;
+    }
 
 
 }//end class
