@@ -15,7 +15,7 @@ public class CoffeeMachine : MonoBehaviour
     void OnMouseDown(){
         if(coffeeReady == false){
             if(brewing == false && coffeeReady == false){
-            StartCoroutine(MakeCoffee());
+                StartCoroutine(MakeCoffee());
             }else{
                 Debug.Log("Already brewing coffee");
             }
@@ -35,7 +35,7 @@ public class CoffeeMachine : MonoBehaviour
         yield return new WaitForSeconds (prepareTime);
         Debug.Log("Brewed");
         coffeeReady = true;
-        copyCoffee = Instantiate(coffee);
+        copyCoffee = Instantiate(coffee);//create a copy of the coffee gameobject to appear in scene
         brewing = false;
     }//end MakeCoffee
 

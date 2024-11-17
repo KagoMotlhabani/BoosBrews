@@ -246,7 +246,7 @@ Transform:
   m_GameObject: {fileID: 32880116}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 6.1309, y: -2.74, z: 0}
+  m_LocalPosition: {x: 6.1309, y: -2, z: 0}
   m_LocalScale: {x: 33.92089, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -377,7 +377,7 @@ Transform:
   m_GameObject: {fileID: 372584445}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 21.1, y: -0.32, z: 0}
+  m_LocalPosition: {x: 18, y: 0.31, z: 0}
   m_LocalScale: {x: 3.4361448, y: 3.7371235, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -730,6 +730,8 @@ MonoBehaviour:
   inCafe: 0
   orderGiven: 0
   happy: 1
+  money: {fileID: 0}
+  coffeePrice: 10
 --- !u!212 &906958328
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -951,7 +953,7 @@ Transform:
   m_GameObject: {fileID: 1107757310}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 3.41, y: 0.06, z: 0}
+  m_LocalPosition: {x: 3.41, y: -0.98, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -970,10 +972,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   customer: {fileID: 906958327}
+  kitchenPosition: {x: 13.241388, y: -0.9850004}
+  startPosition: {x: 0, y: 0}
   walkTime: 4
-  prepareTime: 5
   readyToGo: 0
   busy: 0
+  inKitchen: 0
   moveCounter: 0
 --- !u!61 &1107757314
 BoxCollider2D:

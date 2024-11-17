@@ -5,19 +5,18 @@ using UnityEngine;
 public class Boo : MonoBehaviour
 {
     public Customer customer;
+    public Vector2 kitchenPosition = new Vector2((float)13.2413883,(float)-0.985000372);
+    public Vector2 startPosition;
     public float walkTime = 2;
-    public float prepareTime = 4;
-    public bool readyToGo = false;
     public bool busy = false;
+    public bool inKitchen = false;
 
-    public int moveCounter = 0; //to keep track of where in the cycle Boo is
-
-    //public bool orderReceived = false;
+    public bool holdingCoffee = false;
     // Start is called before the first frame update
     void Start()
     {
+        startPosition = transform.position;
         
-  
     }
 
     // Update is called once per frame
@@ -30,15 +29,12 @@ public class Boo : MonoBehaviour
 
     //Player Clicks on Boo
     void OnMouseDown(){ 
-        moveCounter++;
         //If the customer is ready to order
        
         if(customer.inCafe == true && busy == false){
         
-            readyToGo = true;
             busy = true;
             StartCoroutine(Walk(walkTime) );
-
 
         } else{
             Debug.Log($"Can't do anything right now");
@@ -49,19 +45,32 @@ public class Boo : MonoBehaviour
     }//end OnMouseDown
 
 
-    IEnumerator Walk(float walking){
-        //moveCounter++;
+/*
+Method that allows Boo to walk to the Kitchen in the designated time
+*/
+    IEnumerator Walk(float time){
+
+        float timePassed = 0; 
         Debug.Log($"Walking");
-        while(walking > 0){
-            //put walking stuff here
-            //Debug.Log($"Walking... " + walkTime  + "seconds left...");
-            walking -= Time.deltaTime;
+        while(timePassed < time){
+            
+            //Either walk to the Kitchen (right) or walk to the Counter(left)
+            if(inKitchen==false){
+                transform.position = Vector2.Lerp(startPosition, kitchenPosition, timePassed/time);
+                //transform.Translate(Vector2.right * Time.deltaTime);
+            }else{
+                transform.position = Vector2.Lerp(kitchenPosition, startPosition, timePassed/time);
+                //transform.Translate(Vector2.left * Time.deltaTime);
+            }
+            
+            timePassed += Time.deltaTime;
             yield return null;
         }//end while 
         Debug.Log($"Done walking");
         busy = false;
+        inKitchen = !inKitchen; //flip the value of inKitchen
 
-    }//end wwalk
+    }//end walk
 
 
 }//end class

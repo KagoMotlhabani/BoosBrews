@@ -8,7 +8,7 @@ public class MoneyManager : MonoBehaviour
     public static MoneyManager instance;
     public TMP_Text moneyText;
     public int money;
-    // Start is called before the first frame update
+
 
     private void Awake() {
         instance = this;
