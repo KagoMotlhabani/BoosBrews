@@ -7,7 +7,7 @@ public class MoneyManager : MonoBehaviour
 {
     public static MoneyManager instance;
     public TMP_Text moneyText;
-    public int money;
+    public float money;
 
 
     private void Awake() {
@@ -25,9 +25,14 @@ public class MoneyManager : MonoBehaviour
         
     }
 
-    public void AddMoney(int amount){
+    public void AddMoney(float amount){
         money = money + amount;
         moneyText.text = "MONEY: $" + money;
 
     }//end Add Money
+
+    public void RemoveMoney(float amount){
+        money = money - amount;
+        moneyText.text = "MONEY: $" + money;
+    }
 }//end  class

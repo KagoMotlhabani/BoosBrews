@@ -11,15 +11,17 @@ public class Customer : MonoBehaviour
     public bool happy = true; //customer eneters the cafe happy, if they have to wait too long, they will become angry
     public Vector2 startPosition;
     public Vector2 endPosition = new Vector2( (float)-4.07, (float)-0.98);
-    public MoneyManager money;
-    public int coffeePrice = 10;
+    //public MoneyManager moneyManager;
+    public int coffeePrice = 20;
     public Boo boo;
+    public GameObject coffeeCup;
 
     // Start is called before the first frame update
     void Start()
     {   
         startPosition = transform.position;
         Debug.Log(startPosition);
+        coffeeCup.SetActive(false);
         
     }//end start
 
@@ -44,10 +46,13 @@ public class Customer : MonoBehaviour
 
     private void OnMouseDown()
     {
+        //if Boo has a coffee to give the customer, the customer will pay and leave
         if(inCafe == true && boo.holdingCoffee == true){
             Debug.Log("Customer has received the coffee");
             orderGiven = true;
-            MoneyManager.instance.AddMoney(coffeePrice);
+            MoneyManager.instance.AddMoney(coffeePrice); //update the money variable in the money manager
+            coffeeCup.SetActive(true);
+            boo.coffeeCup.SetActive(false);
             StartCoroutine(CustomerWalkOut(3f));
         } else{
             Debug.Log("You don't have anything to give the customer");
@@ -58,6 +63,7 @@ public class Customer : MonoBehaviour
 
 //here time is how long the customer takes to enter
     IEnumerator CustomerWalkIn(float time){
+        coffeeCup.SetActive(false);
         Debug.Log($"In coroutine");
         float timePassed = 0;
         while(timePassed < time){
@@ -73,7 +79,7 @@ public class Customer : MonoBehaviour
         
     }//end CustomerWalk
 
-        IEnumerator CustomerWalkOut(float time){
+    IEnumerator CustomerWalkOut(float time){
         Debug.Log($"In coroutine"); 
         float timePassed = 0;
         while(timePassed < time){

@@ -24,6 +24,7 @@ public class CoffeeMachine : MonoBehaviour
             Debug.Log("Coffee collected");
             coffeeReady = false;
             boo.holdingCoffee = true;
+            boo.coffeeCup.SetActive(true);
             Destroy(copyCoffee);
         }
         
@@ -45,7 +46,7 @@ public class CoffeeMachine : MonoBehaviour
         return prepareTime;
     }
 
-    public void SetPrepTime(int newPrepTime){
+    public void SetPrepTime(float newPrepTime){
         prepareTime = newPrepTime;
     }
 }//end class

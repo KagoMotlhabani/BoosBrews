@@ -7,15 +7,16 @@ public class Boo : MonoBehaviour
     public Customer customer;
     public Vector2 kitchenPosition = new Vector2((float)12.43,(float)-0.54);
     public Vector2 startPosition;
-    public float walkTime = 2;
+    public float walkTime = 2f;
     public bool busy = false;
     public bool inKitchen = false;
-
     public bool holdingCoffee = false;
+    public GameObject coffeeCup;
     // Start is called before the first frame update
     void Start()
     {
         startPosition = transform.position;
+        coffeeCup.SetActive(false);
         
     }
 
