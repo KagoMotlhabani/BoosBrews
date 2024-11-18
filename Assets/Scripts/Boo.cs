@@ -71,8 +71,8 @@ Method that allows Boo to walk to the Kitchen in the designated time
         return walkTime;
     }
 
-    public void SetWalkTime(float newTime){
-        walkTime = newTime;
+    public void SetWalkTime(float newWalkTime){
+        walkTime = newWalkTime;
     }
 
 

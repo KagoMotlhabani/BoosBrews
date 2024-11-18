@@ -21,6 +21,7 @@ public class UpgradeManager : MonoBehaviour
     }
 
     void UpgradeWalkTime(){
+        boo.walkTime = 2;
         
     }
 
