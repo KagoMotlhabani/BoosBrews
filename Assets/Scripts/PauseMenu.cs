@@ -2,12 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class UpgradeManager : MonoBehaviour
+public class PauseMenu : MonoBehaviour
 {
-    public Boo boo;
-    public Customer customer;
-    public float walkUpgradeCost;
-    public float prepUpgradeCost;
     // Start is called before the first frame update
     void Start()
     {
@@ -18,13 +14,5 @@ public class UpgradeManager : MonoBehaviour
     void Update()
     {
         
-    }
-
-    void UpgradeWalkTime(){
-        
-    }
-
-    void UpgradePrepTime(){
-
     }
 }
