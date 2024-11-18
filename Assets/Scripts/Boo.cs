@@ -12,6 +12,7 @@ public class Boo : MonoBehaviour
     public bool inKitchen = false;
     public bool holdingCoffee = false;
     public GameObject coffeeCup;
+    public Tutorial tutorial;
     // Start is called before the first frame update
     void Start()
     {
@@ -60,10 +61,17 @@ Method that allows Boo to walk to the Kitchen in the designated time
         }//end while 
         Debug.Log($"Done walking");
         busy = false;
+        if(holdingCoffee == true){
+            if(tutorial.isEnabled == true){tutorial.EditTutorial(5);}
+            Debug.Log($"Boo is holding the coffee");
+        }
         inKitchen = !inKitchen; //flip the value of inKitchen
 
-        if(holdingCoffee == true){
-            Debug.Log($"Boo is holding the coffee");
+        if(inKitchen){
+            //Debug.Log($"OK now click on COFFEEMACHINE");
+            if(tutorial.isEnabled == true){
+                tutorial.EditTutorial(1);
+            }
         }
 
     }//end walk

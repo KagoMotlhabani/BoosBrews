@@ -11,17 +11,20 @@ public class CoffeeMachine : MonoBehaviour
     public float prepareTime = 5;
     public GameObject coffee, copyCoffee;
     public Boo boo;
+    public Tutorial tutorial;
 
 
     void OnMouseDown(){
         if(coffeeReady == false){
             if(brewing == false && coffeeReady == false){
                 StartCoroutine(MakeCoffee());
+                if(tutorial.isEnabled == true){tutorial.EditTutorial(2);}
             }else{
                 Debug.Log("Already brewing coffee");
             }
         }else{
             Debug.Log("Coffee collected");
+             if(tutorial.isEnabled == true){tutorial.EditTutorial(4);}
             coffeeReady = false;
             boo.holdingCoffee = true;
             boo.coffeeCup.SetActive(true);
@@ -36,6 +39,7 @@ public class CoffeeMachine : MonoBehaviour
         Debug.Log($"Brewing...");
         brewing = true;
         yield return new WaitForSeconds (prepareTime);
+        if(tutorial.isEnabled == true){tutorial.EditTutorial(3);}
         Debug.Log("Brewed");
         coffeeReady = true;
         copyCoffee = Instantiate(coffee);//create a copy of the coffee gameobject to appear in scene

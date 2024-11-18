@@ -15,6 +15,7 @@ public class Customer : MonoBehaviour
     public int coffeePrice = 20;
     public Boo boo;
     public GameObject coffeeCup;
+    public Tutorial tutorial;
 
     // Start is called before the first frame update
     void Start()
@@ -64,7 +65,7 @@ public class Customer : MonoBehaviour
 //here time is how long the customer takes to enter
     IEnumerator CustomerWalkIn(float time){
         coffeeCup.SetActive(false);
-        Debug.Log($"In coroutine");
+        //Debug.Log($"In coroutine");
         float timePassed = 0;
         while(timePassed < time){
             if(inCafe == false){
@@ -76,11 +77,16 @@ public class Customer : MonoBehaviour
         }
         Debug.Log($"A customer has entered the cafe");
         inCafe = true;
+
+        if(tutorial.isEnabled == true){
+            tutorial.EditTutorial(0);
+        }
+        
         
     }//end CustomerWalk
 
     IEnumerator CustomerWalkOut(float time){
-        Debug.Log($"In coroutine"); 
+        //Debug.Log($"In coroutine"); 
         float timePassed = 0;
         while(timePassed < time){
             if(inCafe == true){
@@ -91,6 +97,11 @@ public class Customer : MonoBehaviour
             yield return null;
         }
         Debug.Log($"A customer has left the cafe");
+        if(tutorial.isEnabled == true){
+            tutorial.EditTutorial(6);
+            yield return new WaitForSeconds(4);
+            tutorial.isEnabled = false;
+        }
         inCafe = false;
         timeDelay = 0;
     }//end CustomerWalk
